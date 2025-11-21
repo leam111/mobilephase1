@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'SignupPage.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -11,9 +11,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-home: Scaffold(appBar: AppBar(title: Text('data'),),),
-
+      debugShowCheckedModeBanner: false,
+     home: SignUpPage(),
        // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
