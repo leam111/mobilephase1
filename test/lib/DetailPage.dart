@@ -177,7 +177,7 @@ class _DetailsPageState extends State<DetailsPage> {
                 style:  TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
-                  color: Colors.green,
+                  color: const Color.fromARGB(255, 0, 0, 0),
                 ),
               ),
 
