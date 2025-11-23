@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'DetailPage.dart';
+
 class ListViewDemo extends StatefulWidget {
-  const ListViewDemo({super.key});
+  ListViewDemo({super.key});
 
   @override
   State<ListViewDemo> createState() => _ListViewDemoState();
@@ -21,12 +22,12 @@ class _ListViewDemoState extends State<ListViewDemo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF2F2F7),
+      backgroundColor: Color(0xFFF2F2F7),
       appBar: AppBar(
-        backgroundColor: const Color(0xFFF2F2F7),
+        backgroundColor: Color(0xFFF2F2F7),
         elevation: 0,
         centerTitle: false,
-        title: const Text(
+        title: Text(
           'Shop',
           style: TextStyle(
             color: Colors.black87,
@@ -37,38 +38,33 @@ class _ListViewDemoState extends State<ListViewDemo> {
       ),
       body: SafeArea(
         child: ListView.separated(
-          padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+          padding: EdgeInsets.symmetric(vertical: 12, horizontal: 16),
           itemCount: item.length,
-          separatorBuilder: (_, __) => const SizedBox(height: 12),
+          separatorBuilder: (_, __) => SizedBox(height: 12),
           itemBuilder: (context, index) {
             final current = item[index];
             return GestureDetector(
               onTap: () {
-                // placeholder for navigation / action
-                // Navigator.push(...);
- Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => DetailsPage(
-                            title: item[index]["Title"]!,
-                            subtitle: item[index]["Subtitle"]!,
-                            image: item[index]["Image"]!,
-                          ),
-                        ),
-                      );
-
-
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => DetailsPage(
+                      title: item[index]["Title"]!,
+                      subtitle: item[index]["Subtitle"]!,
+                      image: item[index]["Image"]!,
+                    ),
+                  ),
+                );
               },
               child: Container(
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(12),
-                  // subtle iOS-like shadow
                   boxShadow: [
                     BoxShadow(
                       color: Colors.black.withOpacity(0.05),
                       blurRadius: 8,
-                      offset: const Offset(0, 2),
+                      offset: Offset(0, 2),
                     ),
                   ],
                 ),
@@ -76,7 +72,6 @@ class _ListViewDemoState extends State<ListViewDemo> {
                   padding: EdgeInsets.symmetric(vertical: 6, horizontal: 8),
                   child: Row(
                     children: [
-                      // thumbnail
                       ClipRRect(
                         borderRadius: BorderRadius.circular(10),
                         child: Image.asset(
@@ -86,7 +81,7 @@ class _ListViewDemoState extends State<ListViewDemo> {
                           fit: BoxFit.cover,
                         ),
                       ),
-                       SizedBox(width: 12),
+                      SizedBox(width: 12),
                       Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -95,13 +90,13 @@ class _ListViewDemoState extends State<ListViewDemo> {
                               current['Title']!,
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
-                              style: const TextStyle(
+                              style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w600,
                                 color: Colors.black87,
                               ),
                             ),
-                            const SizedBox(height: 6),
+                            SizedBox(height: 6),
                             Text(
                               '\$${current['Subtitle']!}',
                               style: TextStyle(
@@ -113,13 +108,12 @@ class _ListViewDemoState extends State<ListViewDemo> {
                           ],
                         ),
                       ),
-                      // chevron (iOS-style)
-                       Icon(
+                      Icon(
                         CupertinoIcons.chevron_forward,
                         color: Color(0xFF8E8E93),
                         size: 20,
                       ),
-                       SizedBox(width: 6),
+                      SizedBox(width: 6),
                     ],
                   ),
                 ),

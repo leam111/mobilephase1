@@ -17,18 +17,15 @@ class DetailsPage extends StatefulWidget {
 }
 
 class _DetailsPageState extends State<DetailsPage> {
-  int selectedQuantity = 1; // default quantity
-  String selectedColor = 'Silver'; // default color
+  int selectedQuantity = 1;
+  String selectedColor = 'Silver'; 
 
-  // Checkboxes
   bool engraving = false;
   bool giftWrap = false;
   bool certificate = false;
 
-  // Base price from subtitle
   int get basePrice => int.parse(widget.subtitle);
 
-  // Total price calculation
   int get totalPrice {
     int optionsPrice = 0;
     if (engraving) optionsPrice += 25;
@@ -56,17 +53,16 @@ class _DetailsPageState extends State<DetailsPage> {
                 width: 400,
                 height: 400,
               ),
-               SizedBox(height: 20),
-              Text(
-                '\$${widget.subtitle}',
-                style:  TextStyle(
-                  fontSize: 30,
-                  color: Colors.black,
-                ),
-              ),
+              //  SizedBox(height: 20),
+              // Text(
+              //   '\$${widget.subtitle}',
+              //   style:  TextStyle(
+              //     fontSize: 30,
+              //     color: Colors.black,
+              //   ),
+              // ),
                SizedBox(height: 20),
 
-              // Quantity Dropdown
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -90,7 +86,6 @@ class _DetailsPageState extends State<DetailsPage> {
 
                SizedBox(height: 20),
 
-              // Color Radio Buttons
               Column(
                 children: [
                    Text('Select Color:'),
@@ -135,7 +130,6 @@ class _DetailsPageState extends State<DetailsPage> {
 
                SizedBox(height: 20),
 
-              // Options Checkboxes
               Column(
                 children: [
                    Text('Add Options (\$25 each):'),
@@ -171,7 +165,6 @@ class _DetailsPageState extends State<DetailsPage> {
 
                SizedBox(height: 20),
 
-              // Total Price
               Text(
                 'Total Price: \$${totalPrice}',
                 style:  TextStyle(
@@ -183,13 +176,11 @@ class _DetailsPageState extends State<DetailsPage> {
 
                SizedBox(height: 20),
 
-              // Purchase Button with Notification
               SizedBox(
                 height: 60,
                 width: 200,
                 child: ElevatedButton(
                   onPressed: () {
-                    // Show SnackBar
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         content: Text('Purchased successfully!'),
@@ -197,7 +188,6 @@ class _DetailsPageState extends State<DetailsPage> {
                       ),
                     );
 
-                    // Go back after SnackBar
                     Future.delayed(const Duration(seconds: 2), () {
                       Navigator.pop(context);
                     });

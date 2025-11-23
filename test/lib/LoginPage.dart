@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Loginpage extends StatefulWidget {
-  const Loginpage({super.key});
+  Loginpage({super.key});
 
   @override
   State<Loginpage> createState() => _LoginpageState();
@@ -9,7 +9,6 @@ class Loginpage extends StatefulWidget {
 final TextEditingController emailcontroller = TextEditingController();
 final TextEditingController passwordcontroller = TextEditingController();
 final TextEditingController confirmpasscontroller = TextEditingController();
-
 
 class _LoginpageState extends State<Loginpage> {
   @override
@@ -22,7 +21,7 @@ class _LoginpageState extends State<Loginpage> {
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
-            Navigator.pop(context); // goes back to previous page
+            Navigator.pop(context);
           },
         ),
       ),
@@ -30,8 +29,8 @@ class _LoginpageState extends State<Loginpage> {
         child: Padding(
           padding: EdgeInsets.all(20),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center, // centers vertically
-            crossAxisAlignment: CrossAxisAlignment.center, // centers horizontally
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
                 'Sign Up To Create An Account',
@@ -63,7 +62,6 @@ class _LoginpageState extends State<Loginpage> {
                       borderRadius: BorderRadius.circular(12),
                     ),
                   ),
-                  
                 ),
               ),
               SizedBox(height: 10),
@@ -78,7 +76,6 @@ class _LoginpageState extends State<Loginpage> {
                       borderRadius: BorderRadius.circular(12),
                     ),
                   ),
-                 
                 ),
               ),
               SizedBox(height: 10),
@@ -87,7 +84,6 @@ class _LoginpageState extends State<Loginpage> {
                 width: 170,
                 child: ElevatedButton(
                   onPressed: () {
-                    // Show notification
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         content: Text('Account successfully created!'),
@@ -95,13 +91,10 @@ class _LoginpageState extends State<Loginpage> {
                         backgroundColor: Colors.green,
                       ),
                     );
-
-
-
-emailcontroller.clear();
-passwordcontroller.clear();
-confirmpasscontroller.clear();
-Navigator.pop(context);
+                    emailcontroller.clear();
+                    passwordcontroller.clear();
+                    confirmpasscontroller.clear();
+                    Navigator.pop(context);
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Color(0xFFFAEBD7),
